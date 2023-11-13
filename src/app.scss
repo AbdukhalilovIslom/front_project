@@ -1,0 +1,15 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+}
+.pages {
+  height: 100vh;
+  overflow: scroll;
+  background-color: antiquewhite;
+  flex: 1;
+}
