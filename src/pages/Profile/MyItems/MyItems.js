@@ -19,20 +19,22 @@ export default function MyItems() {
   };
 
   useEffect(() => {
-    fetch(`${base_url}/item/myitems?id=${params.params}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        setItems(result);
+    if (params) {
+      fetch(`${base_url}/item/myitems?id=${params.params}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-        return;
-      });
+        .then((res) => res.json())
+        .then((result) => {
+          setItems(result);
+        })
+        .catch((err) => {
+          console.log(err);
+          return;
+        });
+    }
   }, [render]);
 
   useEffect(() => {
