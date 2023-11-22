@@ -35,7 +35,7 @@ export default function MyItems() {
           return;
         });
     }
-  }, [render, params.params]);
+  }, [render, params.params, params]);
 
   useEffect(() => {
     fetch(`${base_url}/collection/view/${params.params}`, {
