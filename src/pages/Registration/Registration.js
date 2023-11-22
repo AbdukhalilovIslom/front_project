@@ -37,8 +37,7 @@ export default function Registration() {
             return;
           }
           sessionStorage.setItem("token", result.token);
-          console.log(sessionStorage.getItem("token"));
-          navigate("/");
+          navigate("/profile/collections");
           window.location.reload();
         })
         .catch((err) => {

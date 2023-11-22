@@ -1,0 +1,32 @@
+.items__container {
+  padding: 20px;
+  position: relative;
+  .items__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .items__header__h2 {
+    }
+    .items__header__create {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+  }
+  .items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .not__found {
+    height: 70vh;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+  }
+}

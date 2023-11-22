@@ -1,0 +1,43 @@
+.users__container {
+  padding: 20px;
+  .users__header {
+    .users__header__title {
+    }
+  }
+  .users__table {
+    width: 100%;
+
+    .users__table__head {
+      background-color: rgba(0, 0, 0, 0.1);
+      outline: 1px solid rgba(0, 0, 0, 0.1);
+      .users__table__head__tr {
+        .users__table__head__td {
+          padding: 10px;
+        }
+      }
+    }
+    .users__table__body {
+      .users__table__body__tr {
+        outline: 1px solid rgba(0, 0, 0, 0.1);
+
+        .users__table__body__td {
+          padding: 10px;
+
+          .role {
+            padding-inline: 10px;
+            cursor: pointer;
+            &.active {
+              color: rgb(0, 227, 0);
+            }
+          }
+        }
+        .status {
+          cursor: pointer;
+        }
+        .action {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

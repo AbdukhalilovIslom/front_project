@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./login.scss";
 import { TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { base_url } from "../../data";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,12 +30,11 @@ export default function Login() {
             return;
           }
           if (result.message === "Incorrect password!") {
-            console.log("Incorrect password!");
+            toast.error("Incorrect password!");
             return;
           }
           sessionStorage.setItem("token", result.token);
-          console.log(sessionStorage.getItem("token"));
-          navigate("/");
+          navigate("/profile/collections");
           window.location.reload();
         })
         .catch((err) => {
@@ -72,6 +72,9 @@ export default function Login() {
         >
           Sign In
         </div>
+        <Link to="/registration" className="login__inner__btn__reg">
+          Sign Up
+        </Link>
       </div>
     </div>
   );

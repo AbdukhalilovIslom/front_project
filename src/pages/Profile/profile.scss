@@ -1,5 +1,5 @@
 .profile {
-  padding: 10px;
+  padding: 20px;
 
   .collections {
     display: flex;
@@ -13,7 +13,7 @@
     justify-content: space-between;
     .logout {
       padding: 10px;
-      border: 1px solid grey;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 3px;
       cursor: pointer;
     }

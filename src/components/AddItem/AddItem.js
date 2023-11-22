@@ -3,6 +3,7 @@ import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import { TextField } from "@mui/material";
 import { base_url } from "../../data";
+import { toast } from "react-toastify";
 
 export default function AddItem({ setOpen, open, collection_id, setRender }) {
   const [name, setName] = useState();
@@ -10,8 +11,6 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
 
   const handleClose = () => {
     setOpen(false);
-    setName();
-    setTag();
   };
 
   const handleCreate = () => {
@@ -31,8 +30,14 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
         .then((res) => res.json())
         .then((result) => {
           if (!result) return;
-          handleClose();
-          setRender(Math.random());
+          if (result.status === 200) {
+            handleClose();
+            setName();
+            setTag();
+            setRender(Math.random());
+          } else {
+            toast.error("You are INACTIVE!");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -48,8 +53,8 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <div>
-        <h2>Add Item</h2>
+      <div className="add__item">
+        <h2 className="add__item__h2">Add Item</h2>
         <TextField
           required
           id="outlined-basic"
@@ -65,7 +70,10 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
           value={tag}
           onChange={(e) => setTag(e.target.value)}
         />
-        <div onClick={handleCreate}>Create</div>
+        <div className="spacer"></div>
+        <div className="add__item__btn" onClick={handleCreate}>
+          Create
+        </div>
       </div>
     </Dialog>
   );

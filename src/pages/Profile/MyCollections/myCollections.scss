@@ -1,0 +1,55 @@
+.my__coll {
+  .my__coll__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+    }
+  }
+
+  .my__colls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .not__found {
+      height: 70vh;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+}
+
+.add__coll {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .add__coll__h2 {
+    margin: 0;
+  }
+  .spacer {
+    width: 400px;
+  }
+  .add__coll__btn {
+    padding: 10px;
+    background-color: rgb(60, 60, 255);
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}

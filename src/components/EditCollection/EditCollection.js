@@ -6,29 +6,27 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { base_url } from "../../data";
+import { toast } from "react-toastify";
 
 export default function EditCollection({
   openEdit,
   setOpenEdit,
+  collection,
   setRender,
-  editigEl,
 }) {
-  const [theme_id, setTheme_id] = useState();
-  const [name, setName] = useState();
-  const [image, setImage] = useState();
+  const [theme_id, setTheme_id] = useState(collection.theme_id);
+  const [name, setName] = useState(collection.name);
+  const [image, setImage] = useState(collection.image || undefined);
 
   const handleClose = () => {
     setOpenEdit(false);
-    setTheme_id();
-    setName();
-    setImage();
   };
 
   const handleUpdate = () => {
     if (name && theme_id) {
-      fetch(`${base_url}/collection/update/${editigEl._id}`, {
+      fetch(`${base_url}/collection/update/${collection._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -43,8 +41,13 @@ export default function EditCollection({
         .then((res) => res.json())
         .then((result) => {
           if (!result) return;
-          setRender(Math.random());
-          handleClose();
+          if (result.status === 200) {
+            handleClose();
+            setRender(Math.random());
+            toast.success("Updated");
+          } else {
+            toast.error("You are INACTIVE!");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -60,8 +63,8 @@ export default function EditCollection({
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <div>
-        <h2>Update Collection</h2>
+      <div className="add__coll">
+        <h2 className="add__coll__h2">Update Collection</h2>
         <TextField
           fullWidth
           required
@@ -72,12 +75,12 @@ export default function EditCollection({
           onChange={(e) => setName(e.target.value)}
         />
         <FormControl fullWidth required>
-          <InputLabel id="demo-simple-select-label">Role</InputLabel>
+          <InputLabel id="demo-simple-select-label">Theme</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={theme_id}
-            label="Role"
+            label="Theme"
             onChange={(e) => setTheme_id(e.target.value)}
           >
             <MenuItem value={1}>Theme 1</MenuItem>
@@ -88,12 +91,15 @@ export default function EditCollection({
           fullWidth
           required
           id="outlined-basic"
-          label=""
+          label="image url"
           variant="outlined"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
-        <div onClick={handleUpdate}>Update</div>
+        <div className="spacer"></div>
+        <div className="add__coll__btn" onClick={handleUpdate}>
+          Update
+        </div>
       </div>
     </Dialog>
   );

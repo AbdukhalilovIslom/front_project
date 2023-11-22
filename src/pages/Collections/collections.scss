@@ -1,0 +1,26 @@
+.collections__container {
+  padding: 20px;
+  .collections__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .collections__header__h2 {
+    }
+  }
+  .collections {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .not__found {
+      height: 70vh;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+}

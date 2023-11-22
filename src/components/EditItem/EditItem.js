@@ -3,20 +3,19 @@ import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import { TextField } from "@mui/material";
 import { base_url } from "../../data";
+import { toast } from "react-toastify";
 
-export default function EditItem({ setOpenEdit, openEdit, setRender, id }) {
-  const [name, setName] = useState();
-  const [tag, setTag] = useState("#book #fashion #lifehack");
+export default function EditItem({ setOpenEdit, openEdit, setRender, item }) {
+  const [name, setName] = useState(item.name);
+  const [tag, setTag] = useState(item.tag);
 
   const handleClose = () => {
     setOpenEdit(false);
-    setName();
-    setTag();
   };
 
   const handleUpdate = () => {
     if (name && tag) {
-      fetch(`${base_url}/item/update/${id}`, {
+      fetch(`${base_url}/item/update/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -30,8 +29,14 @@ export default function EditItem({ setOpenEdit, openEdit, setRender, id }) {
         .then((res) => res.json())
         .then((result) => {
           if (!result) return;
-          handleClose();
-          setRender(Math.random());
+
+          if (result.status === 200) {
+            handleClose();
+            setRender(Math.random());
+            toast.success("Updated");
+          } else {
+            toast.error("You are INACTIVE!");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -47,13 +52,14 @@ export default function EditItem({ setOpenEdit, openEdit, setRender, id }) {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <div>
-        <h2>Add Item</h2>
+      <div className="add__item">
+        <h2 className="add__item__h2">Edit Item</h2>
         <TextField
           required
           id="outlined-basic"
           label="Name"
           variant="outlined"
+          value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <TextField
@@ -64,7 +70,10 @@ export default function EditItem({ setOpenEdit, openEdit, setRender, id }) {
           value={tag}
           onChange={(e) => setTag(e.target.value)}
         />
-        <div onClick={handleUpdate}>Update</div>
+        <div className="spacer"></div>
+        <div className="add__item__btn" onClick={handleUpdate}>
+          Update
+        </div>
       </div>
     </Dialog>
   );

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36pt" height="36pt" viewBox="0 0 36 36" version="1.1">
+<g id="surface866">
+<path style="fill:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:10;" d="M 29.5 11.5 L 29.5 11 C 29.5 7.963542 27.036458 5.5 24 5.5 C 20.963542 5.5 18.5 7.963542 18.5 11 L 18.5 11.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:10;" d="M 6.5 11.5 L 41.5 11.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:10;" d="M 20.5 19.5 L 20.5 34.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:10;" d="M 27.5 19.5 L 27.5 34.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:10;" d="M 10 11.5 L 12.651042 38.885417 C 12.848958 40.9375 14.572917 42.5 16.630208 42.5 L 31.369792 42.5 C 33.427083 42.5 35.151042 40.9375 35.348958 38.885417 L 38 11.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+</g>
+</svg>

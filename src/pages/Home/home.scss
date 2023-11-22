@@ -1,0 +1,40 @@
+.home {
+  padding: 0 20px;
+  margin-bottom: 50px;
+
+  .home__coll {
+    .home__coll__title {
+    }
+    .home__colls {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+      .home__col {
+      }
+    }
+  }
+  .home__items {
+    .home__items__title {
+    }
+    .home__items__slider {
+      padding-right: 10px;
+
+      .home__item__not__found {
+        height: 320px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .swiper-slide {
+        height: 100%;
+      }
+      .swiper-wrapper {
+        padding: 10px;
+      }
+      .swiper-pagination {
+        display: none;
+      }
+    }
+  }
+}

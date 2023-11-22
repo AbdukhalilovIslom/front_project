@@ -9,6 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 import { base_url } from "../../data";
+import { toast } from "react-toastify";
 
 export default function AddCollection({ setOpen, open, setRender }) {
   const [theme_id, setTheme_id] = useState(1);
@@ -17,9 +18,6 @@ export default function AddCollection({ setOpen, open, setRender }) {
 
   const handleClose = () => {
     setOpen(false);
-    setTheme_id();
-    setName();
-    setImage();
   };
 
   const handleCreate = () => {
@@ -39,8 +37,13 @@ export default function AddCollection({ setOpen, open, setRender }) {
         .then((res) => res.json())
         .then((result) => {
           if (!result) return;
-          handleClose();
-          setRender(Math.random());
+          if (result.status === 200) {
+            handleClose();
+            setRender(Math.random());
+            toast.success("Succesfully created");
+          } else {
+            toast.error("You are INACTIVE!");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -56,8 +59,8 @@ export default function AddCollection({ setOpen, open, setRender }) {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <div>
-        <h2>Add Collection</h2>
+      <div className="add__coll">
+        <h2 className="add__coll__h2">Add Collection</h2>
         <TextField
           fullWidth
           required
@@ -67,12 +70,12 @@ export default function AddCollection({ setOpen, open, setRender }) {
           onChange={(e) => setName(e.target.value)}
         />
         <FormControl fullWidth required>
-          <InputLabel id="demo-simple-select-label">Role</InputLabel>
+          <InputLabel id="demo-simple-select-label">Theme</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={theme_id}
-            label="Role"
+            label="Theme"
             onChange={(e) => setTheme_id(e.target.value)}
           >
             <MenuItem value={1}>Theme 1</MenuItem>
@@ -81,14 +84,16 @@ export default function AddCollection({ setOpen, open, setRender }) {
         </FormControl>
         <TextField
           fullWidth
-          required
           id="outlined-basic"
-          label=""
+          label="image url"
           variant="outlined"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
-        <div onClick={handleCreate}>Create</div>
+        <div className="spacer"></div>
+        <div className="add__coll__btn" onClick={handleCreate}>
+          Create
+        </div>
       </div>
     </Dialog>
   );

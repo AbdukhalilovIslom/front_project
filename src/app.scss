@@ -2,14 +2,82 @@ html,
 body {
   margin: 0;
   padding: 0;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .app {
   display: flex;
 }
+
+.pages__container {
+  height: 100vh;
+  overflow: scroll;
+  flex: 1;
+}
+
 .pages {
   height: 100vh;
   overflow: scroll;
-  background-color: antiquewhite;
   flex: 1;
+}
+
+.like__svg {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    fill: red;
+  }
+  &:active {
+    stroke: red;
+  }
+  &.active {
+    fill: red;
+  }
+}
+.comment__svg {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  stroke: black;
+  &:hover {
+    stroke: rgb(0, 21, 255);
+  }
+  &:active {
+    stroke: rgb(0, 21, 255);
+  }
+}
+.delete__svg {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  width: 23px;
+  height: 24px;
+  stroke: rgb(0, 0, 0);
+
+  &:hover {
+    stroke: red;
+  }
+  &:active {
+    stroke: red;
+  }
+}
+
+.edit__svg {
+  transition: all 0.3s ease-in-out;
+  stroke: rgb(0, 0, 0);
+  cursor: pointer;
+  &:hover {
+    fill: rgb(255, 208, 0);
+    stroke: rgb(255, 208, 0);
+  }
 }
