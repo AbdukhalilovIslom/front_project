@@ -35,7 +35,7 @@ export default function MyItems() {
           return;
         });
     }
-  }, [render]);
+  }, [render, params.params]);
 
   useEffect(() => {
     fetch(`${base_url}/collection/view/${params.params}`, {
@@ -64,7 +64,7 @@ export default function MyItems() {
         console.log(err);
         return;
       });
-  }, []);
+  }, [params.params]);
 
   return (
     <div className="my__items__container">
