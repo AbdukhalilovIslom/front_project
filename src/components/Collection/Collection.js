@@ -25,7 +25,6 @@ export default function Collection({ el, link, setRender }) {
         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     })
-      .then((res) => res.json())
       .then((result) => {
         if (result.status === 200) {
           setRender(Math.random());

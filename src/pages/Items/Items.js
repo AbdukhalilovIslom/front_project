@@ -79,7 +79,6 @@ export default function Items() {
           userId: userId,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           console.log(result);
           if (result.status === 200) {

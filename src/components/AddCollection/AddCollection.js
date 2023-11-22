@@ -34,7 +34,6 @@ export default function AddCollection({ setOpen, open, setRender }) {
           image,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           if (!result) return;
           if (result.status === 200) {

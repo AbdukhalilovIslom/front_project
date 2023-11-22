@@ -26,7 +26,6 @@ export default function EditItem({ setOpenEdit, openEdit, setRender, item }) {
           tag,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           if (!result) return;
 

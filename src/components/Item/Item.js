@@ -26,7 +26,6 @@ export default function Item({ item, setRender, usersNames }) {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       })
-        .then((res) => res.json())
         .then((result) => {
           if (result.status === 200) {
             setRender(Math.random());
@@ -56,7 +55,6 @@ export default function Item({ item, setRender, usersNames }) {
             itemId: item._id,
           }),
         })
-          .then((res) => res.json())
           .then((result) => {
             if (result.status === 200) {
               setRender(Math.random());
@@ -87,7 +85,6 @@ export default function Item({ item, setRender, usersNames }) {
           itemId: item._id,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           if (result.status === 200) {
             setLike(true);
@@ -116,7 +113,6 @@ export default function Item({ item, setRender, usersNames }) {
           itemId: item._id,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           if (result.status === 200) {
             setLike(false);

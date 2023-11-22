@@ -38,7 +38,6 @@ export default function EditCollection({
           image,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           if (!result) return;
           if (result.status === 200) {

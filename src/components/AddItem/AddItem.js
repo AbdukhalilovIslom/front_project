@@ -27,7 +27,6 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
           collection_id,
         }),
       })
-        .then((res) => res.json())
         .then((result) => {
           if (!result) return;
           if (result.status === 200) {
