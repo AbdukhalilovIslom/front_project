@@ -4,6 +4,7 @@ import Dialog from "@mui/material/Dialog";
 import { TextField } from "@mui/material";
 import { base_url } from "../../data";
 import { toast } from "react-toastify";
+import "./addItem.scss";
 
 export default function AddItem({ setOpen, open, collection_id, setRender }) {
   const [name, setName] = useState();

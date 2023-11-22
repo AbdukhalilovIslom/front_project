@@ -2,7 +2,7 @@
   padding: 10px;
   max-width: 302px;
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: 7px;
   -webkit-box-shadow: 0px 2px 5px 1px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 2px 5px 1px rgba(34, 60, 80, 0.2);
@@ -42,6 +42,8 @@
   .item__input {
     margin-top: auto;
     border: none;
+    background-color: transparent;
+    color: var(--text-color);
 
     &:focus:not([data-focus-visible-added]) {
       outline: none;
@@ -70,7 +72,7 @@
 
     .item__view__comm {
       padding: 20px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -83,6 +85,7 @@
     .item__view__ref__input {
       margin-top: auto;
       border: none;
+      background-color: transparent;
 
       &:focus:not([data-focus-visible-added]) {
         outline: none;

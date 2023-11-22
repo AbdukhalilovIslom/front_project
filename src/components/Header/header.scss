@@ -12,7 +12,7 @@
   .header__search {
     padding: 10px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--black-grey);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +68,7 @@
     position: absolute;
     width: 100%;
     background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);

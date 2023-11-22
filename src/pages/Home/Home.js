@@ -81,7 +81,7 @@ export default function Home() {
                 className="mySwiper"
               >
                 {items.map((el) => (
-                  <SwiperSlide style={{ height: "300px" }}>
+                  <SwiperSlide style={{ height: "300px" }} key={el._id}>
                     <Item
                       item={el}
                       setRender={setRender}

@@ -1,8 +1,36 @@
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --link-color: #543fd7;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --black-grey: #000;
+}
+
+.app[data-theme="light"] {
+  --black-grey: #000;
+  --background-color: #fff;
+  --text-color: #000;
+  --link-color: #543fd7;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.app[data-theme="dark"] {
+  --black-grey: rgba(255, 255, 255, 0.2);
+  --background-color: #000000;
+  --text-color: #fff;
+  --link-color: #543fd7;
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  color: black;
+}
+
+.app {
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 * {
@@ -11,7 +39,7 @@ body {
 }
 
 a {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
@@ -46,10 +74,11 @@ a {
     fill: red;
   }
 }
+
 .comment__svg {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  stroke: black;
+  stroke: var(--text-color);
   &:hover {
     stroke: rgb(0, 21, 255);
   }
@@ -57,12 +86,13 @@ a {
     stroke: rgb(0, 21, 255);
   }
 }
+
 .delete__svg {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   width: 23px;
   height: 24px;
-  stroke: rgb(0, 0, 0);
+  stroke: var(--text-color);
 
   &:hover {
     stroke: red;
@@ -74,7 +104,7 @@ a {
 
 .edit__svg {
   transition: all 0.3s ease-in-out;
-  stroke: rgb(0, 0, 0);
+  stroke: var(--text-color);
   cursor: pointer;
   &:hover {
     fill: rgb(255, 208, 0);

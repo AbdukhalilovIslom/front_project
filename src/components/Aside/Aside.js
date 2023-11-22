@@ -1,11 +1,11 @@
 import React from "react";
-import "./aside.scss";
 import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as Home } from "../../assets/images/home.svg";
 import { ReactComponent as Collection } from "../../assets/images/collection-fill.svg";
 import { ReactComponent as Items } from "../../assets/images/calendar3-fill.svg";
+import "./aside.scss";
 
-export default function Aside() {
+export default function Aside({ setTheme }) {
   const isAuthenticated = sessionStorage.getItem("token") ?? false;
   const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -42,6 +42,10 @@ export default function Aside() {
       </div>
       {isAuthenticated ? (
         <div className="aside__navigations">
+          <div>
+            <span onClick={() => setTheme("light")}>Light</span> |{" "}
+            <span onClick={() => setTheme("dark")}>Dark</span>
+          </div>
           <NavLink
             className={({ isActive }) =>
               isActive ? "aside__navigation active" : "aside__navigation"
@@ -65,6 +69,10 @@ export default function Aside() {
         </div>
       ) : (
         <div className="aside__navigations">
+          <div>
+            <span onClick={() => setTheme("light")}>Light</span> |{" "}
+            <span onClick={() => setTheme("dark")}>Dark</span>
+          </div>
           <NavLink
             className={({ isActive }) =>
               isActive ? "aside__navigation active" : "aside__navigation"

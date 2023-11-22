@@ -1,6 +1,6 @@
 .aside {
   padding: 10px;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,10 +18,10 @@
       border-radius: 7px;
 
       .svg {
-        fill: #000;
+        fill: var(--text-color);
       }
       &.active {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: var(--black-grey);
         color: #ffffff;
         .svg {
           fill: #ffffff;

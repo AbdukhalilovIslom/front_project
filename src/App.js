@@ -13,8 +13,10 @@ import NotFound from "./pages/NotFound/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Users from "./pages/Users/Users";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("dark");
   const admin =
     (sessionStorage.getItem("user") &&
       JSON.parse(sessionStorage.getItem("user")).role === "admin") ||
@@ -23,8 +25,8 @@ function App() {
   const isAuth = !!sessionStorage.getItem("token");
 
   return (
-    <div className="app">
-      <Aside />
+    <div className="app" data-theme={theme}>
+      <Aside setTheme={setTheme} />
       <div className="pages">
         <Routes>
           <Route path="/" element={<Home />} />
