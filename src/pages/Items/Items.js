@@ -21,7 +21,7 @@ export default function Items() {
   const [userId, setUserId] = useState();
 
   useEffect(() => {
-    if (params.id == "all") {
+    if (params.id === "all") {
       fetch(`${base_url}/item/allitems`, {
         method: "GET",
       })

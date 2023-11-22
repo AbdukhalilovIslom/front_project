@@ -57,9 +57,9 @@ export default function Collection({ el, link, setRender }) {
           {el.itemCount && el.itemCount}
         </span>
       </Link>
-      {window.location.pathname == "/collections" &&
+      {window.location.pathname === "/collections" &&
       user &&
-      (user.role == "admin" || user._id == el.collection.userId) ? (
+      (user.role === "admin" || user._id === el.collection.userId) ? (
         <div className="collection__ref">
           <Delete
             className="delete__svg"
@@ -67,7 +67,7 @@ export default function Collection({ el, link, setRender }) {
           />
           <Edit className="edit__svg" onClick={handleEdit} />
         </div>
-      ) : window.location.pathname == "/profile/collections" && user ? (
+      ) : window.location.pathname === "/profile/collections" && user ? (
         <div className="collection__ref">
           <Delete
             className="delete__svg"

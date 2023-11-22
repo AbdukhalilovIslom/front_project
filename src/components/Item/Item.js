@@ -171,7 +171,7 @@ export default function Item({ item, setRender, usersNames }) {
         ) : (
           ""
         )}
-        {user && (user.role == "admin" || user._id == item.userId) ? (
+        {user && (user.role === "admin" || user._id === item.userId) ? (
           <Delete className="delete__svg" onClick={handleDelete} />
         ) : (
           ""
@@ -183,7 +183,7 @@ export default function Item({ item, setRender, usersNames }) {
           {usersNames &&
             usersNames.find(
               (user) =>
-                user._id == item.comments[item.comments.length - 1].postedBy
+                user._id === item.comments[item.comments.length - 1].postedBy
             ).name}
           <br />
           {item.comments[item.comments.length - 1].text}
@@ -222,7 +222,7 @@ export default function Item({ item, setRender, usersNames }) {
                 <span>
                   Name:{" "}
                   {usersNames
-                    ? usersNames.find((user) => user._id == el.postedBy).name
+                    ? usersNames.find((user) => user._id === el.postedBy).name
                     : "Deleted account"}
                 </span>
                 <span>{el.text}</span>
