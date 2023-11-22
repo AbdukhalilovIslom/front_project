@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./profile.scss";
 import { Outlet, useNavigate } from "react-router-dom";
 import { base_url } from "../../data";
-import { LinearProgress } from "@mui/material";
 
 export default function Profile() {
   const user = JSON.parse(sessionStorage.getItem("user"));
