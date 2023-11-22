@@ -43,8 +43,23 @@ export default function Aside({ setTheme }) {
       {isAuthenticated ? (
         <div className="aside__navigations">
           <div>
-            <span onClick={() => setTheme("light")}>Light</span> |{" "}
-            <span onClick={() => setTheme("dark")}>Dark</span>
+            <span
+              onClick={() => {
+                setTheme("light");
+                localStorage.setItem("theme", "light");
+              }}
+            >
+              Light
+            </span>{" "}
+            |{" "}
+            <span
+              onClick={() => {
+                setTheme("dark");
+                localStorage.setItem("theme", "dark");
+              }}
+            >
+              Dark
+            </span>
           </div>
           <NavLink
             className={({ isActive }) =>

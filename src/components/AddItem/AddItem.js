@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
-import { TextField } from "@mui/material";
+import { TextField, ThemeProvider, createTheme } from "@mui/material";
 import { base_url } from "../../data";
 import { toast } from "react-toastify";
 import "./addItem.scss";
@@ -55,6 +55,7 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
     >
       <div className="add__item">
         <h2 className="add__item__h2">Add Item</h2>
+
         <TextField
           required
           id="outlined-basic"
@@ -70,6 +71,7 @@ export default function AddItem({ setOpen, open, collection_id, setRender }) {
           value={tag}
           onChange={(e) => setTag(e.target.value)}
         />
+
         <div className="spacer"></div>
         <div className="add__item__btn" onClick={handleCreate}>
           Create

@@ -8,8 +8,8 @@
     width: 100%;
 
     .users__table__head {
-      background-color: rgba(0, 0, 0, 0.1);
-      outline: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: var(--border-color);
+      outline: 1px solid var(--border-color);
       .users__table__head__tr {
         .users__table__head__td {
           padding: 10px;
@@ -18,7 +18,7 @@
     }
     .users__table__body {
       .users__table__body__tr {
-        outline: 1px solid rgba(0, 0, 0, 0.1);
+        outline: 1px solid var(--border-color);
 
         .users__table__body__td {
           padding: 10px;
