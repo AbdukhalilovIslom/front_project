@@ -5,8 +5,8 @@ import { ReactComponent as Collection } from "../../assets/images/collection-fil
 import { ReactComponent as Items } from "../../assets/images/calendar3-fill.svg";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import sun from "../../assets/images/110801_sun_icon.svg";
 import moon from "../../assets/images/Moon Symbol.png";
-import sun from "../../assets/images/Sun.gif";
 import "./aside.scss";
 
 export default function Aside({ setTheme, theme }) {
@@ -47,25 +47,26 @@ export default function Aside({ setTheme, theme }) {
       {isAuthenticated ? (
         <div className="aside__navigations">
           {theme === "dark" ? (
-            <div>
-              {" "}
+            <div
+              className="aside__theme"
+              onClick={() => {
+                localStorage.setItem("theme", "light");
+                setTheme("light");
+              }}
+            >
+              <img className="aside__theme__moon" src={moon} alt="moon" />
               Dark mode
-              <Brightness4Icon
-                onClick={() => {
-                  localStorage.setItem("theme", "light");
-                  setTheme("light");
-                }}
-              />
             </div>
           ) : (
-            <div>
+            <div
+              className="aside__theme"
+              onClick={() => {
+                localStorage.setItem("theme", "dark");
+                setTheme("dark");
+              }}
+            >
+              <img src={sun} alt="sun" className="aside__theme__sun" />
               Light mode
-              <Brightness7Icon
-                onClick={() => {
-                  localStorage.setItem("theme", "dark");
-                  setTheme("dark");
-                }}
-              />
             </div>
           )}
           <NavLink

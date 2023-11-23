@@ -209,7 +209,10 @@ export default function Item({ item, setRender, usersNames }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <div className="item__view">
+        <div
+          data-theme={localStorage.getItem("theme") || "dark"}
+          className="item__view"
+        >
           <h2 className="item__view__name">{item.name}</h2>
           <p className="item__view__tag">{item.tag}</p>
           <div className="item__view__comms">
