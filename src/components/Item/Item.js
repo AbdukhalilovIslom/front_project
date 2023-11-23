@@ -177,14 +177,15 @@ export default function Item({ item, setRender, usersNames }) {
         <p className="item__com">
           <b>Name: </b>
           {usersNames &&
-            usersNames.find(
-              (user) =>
-                user._id === item.comments[item.comments.length - 1].postedBy
-            ) &&
-            usersNames.find(
-              (user) =>
-                user._id === item.comments[item.comments.length - 1].postedBy
-            ).name}
+          usersNames.find(
+            (user) =>
+              user._id === item.comments[item.comments.length - 1].postedBy
+          )
+            ? usersNames.find(
+                (user) =>
+                  user._id === item.comments[item.comments.length - 1].postedBy
+              ).name
+            : "Deleted account"}
           <br />
           {item.comments[item.comments.length - 1].text}
         </p>
