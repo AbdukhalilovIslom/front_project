@@ -56,7 +56,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="app" data-theme={mode}>
-        <Aside setTheme={setMode} />
+        <Aside setTheme={setMode} theme={mode} />
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />

@@ -3,9 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as Home } from "../../assets/images/home.svg";
 import { ReactComponent as Collection } from "../../assets/images/collection-fill.svg";
 import { ReactComponent as Items } from "../../assets/images/calendar3-fill.svg";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import moon from "../../assets/images/Moon Symbol.png";
+import sun from "../../assets/images/Sun.gif";
 import "./aside.scss";
 
-export default function Aside({ setTheme }) {
+export default function Aside({ setTheme, theme }) {
   const isAuthenticated = sessionStorage.getItem("token") ?? false;
   const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -42,25 +46,28 @@ export default function Aside({ setTheme }) {
       </div>
       {isAuthenticated ? (
         <div className="aside__navigations">
-          <div>
-            <span
-              onClick={() => {
-                setTheme("light");
-                localStorage.setItem("theme", "light");
-              }}
-            >
-              Light
-            </span>{" "}
-            |{" "}
-            <span
-              onClick={() => {
-                setTheme("dark");
-                localStorage.setItem("theme", "dark");
-              }}
-            >
-              Dark
-            </span>
-          </div>
+          {theme === "dark" ? (
+            <div>
+              {" "}
+              Dark mode
+              <Brightness4Icon
+                onClick={() => {
+                  localStorage.setItem("theme", "light");
+                  setTheme("light");
+                }}
+              />
+            </div>
+          ) : (
+            <div>
+              Light mode
+              <Brightness7Icon
+                onClick={() => {
+                  localStorage.setItem("theme", "dark");
+                  setTheme("dark");
+                }}
+              />
+            </div>
+          )}
           <NavLink
             className={({ isActive }) =>
               isActive ? "aside__navigation active" : "aside__navigation"
@@ -84,10 +91,29 @@ export default function Aside({ setTheme }) {
         </div>
       ) : (
         <div className="aside__navigations">
-          <div>
-            <span onClick={() => setTheme("light")}>Light</span> |{" "}
-            <span onClick={() => setTheme("dark")}>Dark</span>
-          </div>
+          {theme === "dark" ? (
+            <div
+              className="aside__theme"
+              onClick={() => {
+                localStorage.setItem("theme", "light");
+                setTheme("light");
+              }}
+            >
+              <img className="aside__theme__moon" src={moon} alt="moon" />
+              Dark mode
+            </div>
+          ) : (
+            <div
+              className="aside__theme"
+              onClick={() => {
+                localStorage.setItem("theme", "dark");
+                setTheme("dark");
+              }}
+            >
+              <img src={sun} alt="sun" className="aside__theme__sun" />
+              Light mode
+            </div>
+          )}
           <NavLink
             className={({ isActive }) =>
               isActive ? "aside__navigation active" : "aside__navigation"
