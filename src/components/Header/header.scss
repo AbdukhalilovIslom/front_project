@@ -17,10 +17,11 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    width: max-content;
+
     margin-left: auto;
     .header__input {
-      width: 300px;
+      max-width: 300px;
+      width: 100%;
       border: none;
       outline: none;
       background-color: transparent;

@@ -65,7 +65,15 @@ export default function Items() {
   }, []);
 
   const adminAddItem = () => {
-    if (params && user.role === "admin" && userId) {
+    if (
+      params &&
+      user.role === "admin" &&
+      userId &&
+      name &&
+      tag &&
+      params.id &&
+      userId
+    ) {
       fetch(`${base_url}/item/admin/create`, {
         method: "POST",
         headers: {
@@ -80,7 +88,6 @@ export default function Items() {
         }),
       })
         .then((result) => {
-          console.log(result);
           if (result.status === 200) {
             handleClose();
             setName();
@@ -125,7 +132,7 @@ export default function Items() {
         {items && items.length ? (
           <div className="items">
             {items.map((el) => (
-              <div key={el._id}>
+              <div key={el._id} className="item__container">
                 <Item item={el} setRender={setRender} usersNames={usersNames} />
               </div>
             ))}

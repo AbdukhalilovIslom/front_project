@@ -13,6 +13,7 @@ import Collection from "../../components/Collection/Collection";
 
 export default function Home() {
   const [items, setItems] = useState();
+  const [tags, setTags] = useState();
   const [topCollections, setTopCollections] = useState();
   const [render, setRender] = useState(0);
   const [renderColl, setRenderColl] = useState(0);
@@ -27,6 +28,18 @@ export default function Home() {
       .then((result) => {
         setItems(result.reverse());
         setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+
+    fetch(`${base_url}/item/tags`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setTags(result);
       })
       .catch((err) => {
         console.log(err);
@@ -62,18 +75,58 @@ export default function Home() {
       });
   }, []);
 
+  const handleClickTag = (tag) => {
+    if (tag) {
+      fetch(`${base_url}/item/search?query=${tag}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          if (result) {
+            setItems(result);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          return;
+        });
+    }
+  };
+
   return (
     <div>
       <LinearProgress style={loading ? { opacity: "1" } : { opacity: "0" }} />
       <Header setItems={setItems} setRender={setRender} />
       <div className="home">
+        <div className="home__tags_container">
+          <h2>Find by tags</h2>
+          <div className="home__tags">
+            {tags && tags.length
+              ? tags.map((el, index) => (
+                  <span
+                    key={index}
+                    className="home__tag"
+                    onClick={() => {
+                      handleClickTag(el.slice(1));
+                    }}
+                  >
+                    {el}
+                  </span>
+                ))
+              : ""}
+          </div>
+        </div>
         <div className="home__items">
           <h2 className="home__items__title">Leatest items</h2>
           <div className="home__items__slider">
             {items && items.length ? (
               <Swiper
-                slidesPerView={4.5}
                 spaceBetween={20}
+                slidesPerView={"auto"}
                 pagination={{
                   clickable: true,
                 }}
@@ -81,7 +134,10 @@ export default function Home() {
                 className="mySwiper"
               >
                 {items.map((el) => (
-                  <SwiperSlide style={{ height: "300px" }} key={el._id}>
+                  <SwiperSlide
+                    style={{ height: "300px", width: "220px" }}
+                    key={el._id}
+                  >
                     <Item
                       item={el}
                       setRender={setRender}

@@ -6,6 +6,7 @@
   }
   .users__table {
     width: 100%;
+    overflow-x: scroll;
 
     .users__table__head {
       background-color: var(--border-color);

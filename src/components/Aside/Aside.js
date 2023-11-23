@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as Home } from "../../assets/images/home.svg";
 import { ReactComponent as Collection } from "../../assets/images/collection-fill.svg";
 import { ReactComponent as Items } from "../../assets/images/calendar3-fill.svg";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { ReactComponent as Profile } from "../../assets/images/profile.svg";
+import { ReactComponent as Admin } from "../../assets/images/setting.svg";
 import sun from "../../assets/images/110801_sun_icon.svg";
 import moon from "../../assets/images/Moon Symbol.png";
 import "./aside.scss";
@@ -16,16 +16,14 @@ export default function Aside({ setTheme, theme }) {
   return (
     <div className="aside">
       <div className="aside__navigations">
-        <Link className="aside__navigation logo" to="/">
-          STORE
-        </Link>
         <NavLink
           className={({ isActive }) =>
             isActive ? "aside__navigation active" : "aside__navigation"
           }
           to="/"
         >
-          <Home className="svg" /> Home
+          <Home className="svg" />{" "}
+          <span className="aside__navigation__text">Home</span>
         </NavLink>
         <NavLink
           className={({ isActive }) =>
@@ -33,7 +31,8 @@ export default function Aside({ setTheme, theme }) {
           }
           to="/collections"
         >
-          <Collection className="svg" /> Collections
+          <Collection className="svg" />{" "}
+          <span className="aside__navigation__text">Collections</span>
         </NavLink>
         <NavLink
           className={({ isActive }) =>
@@ -41,7 +40,8 @@ export default function Aside({ setTheme, theme }) {
           }
           to="/items/all"
         >
-          <Items className="svg" /> Items
+          <Items className="svg" />
+          <span className="aside__navigation__text">Items</span>
         </NavLink>
       </div>
       {isAuthenticated ? (
@@ -55,7 +55,7 @@ export default function Aside({ setTheme, theme }) {
               }}
             >
               <img className="aside__theme__moon" src={moon} alt="moon" />
-              Dark mode
+              <span className="aside__theme__text">Dark</span>
             </div>
           ) : (
             <div
@@ -66,7 +66,7 @@ export default function Aside({ setTheme, theme }) {
               }}
             >
               <img src={sun} alt="sun" className="aside__theme__sun" />
-              Light mode
+              <span className="aside__theme__text">Light</span>
             </div>
           )}
           <NavLink
@@ -75,7 +75,8 @@ export default function Aside({ setTheme, theme }) {
             }
             to="/profile/collections"
           >
-            Profile
+            <Profile className="svg" />
+            <span className="aside__navigation__text">Profile</span>
           </NavLink>
           {user && user.role === "admin" ? (
             <NavLink
@@ -84,7 +85,9 @@ export default function Aside({ setTheme, theme }) {
               }
               to="/admin"
             >
-              Admin
+              <Admin className="svg" />
+
+              <span className="aside__navigation__text">Admin</span>
             </NavLink>
           ) : (
             ""
@@ -101,7 +104,7 @@ export default function Aside({ setTheme, theme }) {
               }}
             >
               <img className="aside__theme__moon" src={moon} alt="moon" />
-              Dark mode
+              <span className="aside__theme__text">Dark</span>
             </div>
           ) : (
             <div
@@ -112,7 +115,7 @@ export default function Aside({ setTheme, theme }) {
               }}
             >
               <img src={sun} alt="sun" className="aside__theme__sun" />
-              Light mode
+              <span className="aside__theme__text">Light</span>
             </div>
           )}
           <NavLink
@@ -121,7 +124,7 @@ export default function Aside({ setTheme, theme }) {
             }
             to="/login"
           >
-            Sign in
+            <span className="aside__navigation__text">Sign in</span>
           </NavLink>
         </div>
       )}
