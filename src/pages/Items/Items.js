@@ -113,7 +113,7 @@ export default function Items() {
   return (
     <div>
       <LinearProgress style={loading ? { opacity: "1" } : { opacity: "0" }} />
-      <Header setItems={setItems} />
+      <Header />
       <div className="items__container">
         <div className="items__header">
           <h2 className="items__header__h2">Items</h2>

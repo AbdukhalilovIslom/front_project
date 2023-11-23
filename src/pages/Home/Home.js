@@ -100,7 +100,7 @@ export default function Home() {
   return (
     <div>
       <LinearProgress style={loading ? { opacity: "1" } : { opacity: "0" }} />
-      <Header setItems={setItems} setRender={setRender} />
+      <Header />
       <div className="home">
         <div className="home__tags_container">
           <h2>Find by tags</h2>
@@ -135,7 +135,7 @@ export default function Home() {
               >
                 {items.map((el) => (
                   <SwiperSlide
-                    style={{ height: "300px", width: "220px" }}
+                    style={{ height: "300px", width: "300px" }}
                     key={el._id}
                   >
                     <Item

@@ -28,7 +28,7 @@ export default function Collections() {
   return (
     <div>
       <LinearProgress style={loading ? { opacity: "1" } : { opacity: "0" }} />
-      <Header setItems={setCollections} />
+      <Header />
       <div className="collections__container">
         <div className="collections__header">
           <h2 className="collections__header__h2">Collections</h2>
