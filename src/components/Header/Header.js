@@ -4,6 +4,7 @@ import { ReactComponent as SearchIcon } from "../../assets/images/Search.svg";
 import Item from "../../components/Item/Item.js";
 import { base_url } from "../../data";
 import "./header.scss";
+import { toast } from "react-toastify";
 
 export default function Header() {
   const [searched, setSearched] = useState(false);
@@ -52,7 +53,13 @@ export default function Header() {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       })
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 200) {
+            res.json();
+          } else {
+            toast.error("Please sign up");
+          }
+        })
         .then((result) => {
           if (result) {
             setItems(result);
