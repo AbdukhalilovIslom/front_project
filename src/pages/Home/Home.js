@@ -135,7 +135,7 @@ export default function Home() {
               >
                 {items.map((el) => (
                   <SwiperSlide
-                    style={{ height: "300px", width: "300px" }}
+                    style={{ height: "300px", width: "250px" }}
                     key={el._id}
                   >
                     <Item

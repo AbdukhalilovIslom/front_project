@@ -32,7 +32,7 @@ export default function Header() {
         return;
       });
   }, []);
-  // Event handler for input focus
+
   const handleInputFocus = () => {
     setIsInputFocused(true);
   };
@@ -45,7 +45,6 @@ export default function Header() {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && path) {
-      setSearched(true);
       fetch(`${base_url}/item/search?query=${search}`, {
         method: "GET",
         headers: {
@@ -53,16 +52,12 @@ export default function Header() {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       })
-        .then((res) => {
-          if (res.status === 200) {
-            res.json();
-          } else {
-            toast.error("Please sign up");
-          }
-        })
+        .then((res) => res.json())
         .then((result) => {
+          console.log(result);
           if (result) {
             setItems(result);
+            setSearched(true);
           }
         })
         .catch((err) => {

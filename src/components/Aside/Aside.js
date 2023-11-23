@@ -5,6 +5,7 @@ import { ReactComponent as Collection } from "../../assets/images/collection-fil
 import { ReactComponent as Items } from "../../assets/images/calendar3-fill.svg";
 import { ReactComponent as Profile } from "../../assets/images/profile.svg";
 import { ReactComponent as Admin } from "../../assets/images/setting.svg";
+import { ReactComponent as Login } from "../../assets/images/user-login-3057.svg";
 import sun from "../../assets/images/110801_sun_icon.svg";
 import moon from "../../assets/images/Moon Symbol.png";
 import "./aside.scss";
@@ -124,6 +125,7 @@ export default function Aside({ setTheme, theme }) {
             }
             to="/login"
           >
+            <Login className="svg aside__navigation__login__svg" />
             <span className="aside__navigation__text">Sign in</span>
           </NavLink>
         </div>

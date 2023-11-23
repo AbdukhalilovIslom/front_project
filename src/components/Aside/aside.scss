@@ -60,3 +60,15 @@
     }
   }
 }
+.aside__navigation__login__svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color);
+  &.active {
+    background-color: var(--black-grey);
+    color: #ffffff;
+    .svg {
+      fill: #ffffff;
+    }
+  }
+}

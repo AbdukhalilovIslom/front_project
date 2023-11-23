@@ -12,20 +12,9 @@
     }
   }
   .my__items {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-
-    @media all and (max-width: 1439px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media all and (max-width: 900px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media all and (max-width: 750px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
   }
   .not__found {
     height: 70vh;
