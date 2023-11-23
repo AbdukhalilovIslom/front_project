@@ -220,7 +220,8 @@ export default function Item({ item, setRender, usersNames }) {
               <div className="item__view__comm">
                 <span>
                   Name:{" "}
-                  {usersNames
+                  {usersNames &&
+                  usersNames.find((user) => user._id === el.postedBy)
                     ? usersNames.find((user) => user._id === el.postedBy).name
                     : "Deleted account"}
                 </span>
