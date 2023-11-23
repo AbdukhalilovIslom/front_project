@@ -4,7 +4,6 @@ import { ReactComponent as SearchIcon } from "../../assets/images/Search.svg";
 import Item from "../../components/Item/Item.js";
 import { base_url } from "../../data";
 import "./header.scss";
-import { toast } from "react-toastify";
 
 export default function Header() {
   const [searched, setSearched] = useState(false);
