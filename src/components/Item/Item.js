@@ -151,10 +151,10 @@ export default function Item({ item, setRender, usersNames }) {
       <h3 className="item__h3">{item.name}</h3>
       <div className="item__tag">{item.tag}</div>
       <div className="item__ref">
-        <Like
-          onClick={onLike}
-          className={like ? "like__svg active" : "like__svg"}
-        />
+        <span onClick={onLike} className="item__ref__like">
+          <Like className={like ? "like__svg active" : "like__svg"} />
+          <span className="item__ref__like__count">{item.likes.length}</span>
+        </span>
 
         <Comment onClick={() => handleView()} className="comment__svg" />
         {user && (user.role === "admin" || user._id === item.userId) ? (

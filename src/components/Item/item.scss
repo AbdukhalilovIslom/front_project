@@ -43,6 +43,18 @@
   .item__ref {
     display: flex;
     gap: 7px;
+
+    .item__ref__like {
+      position: relative;
+      .item__ref__like__count {
+        position: absolute;
+        top: 7px;
+        left: 9px;
+        font-size: 10px;
+        cursor: pointer;
+      }
+    }
+
     .like__svg {
     }
     .comment__svg {
