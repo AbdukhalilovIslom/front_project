@@ -85,7 +85,7 @@ export default function Header() {
           return;
         });
     }
-  }, [render]);
+  }, [render]); // eslint-disable-line
 
   return (
     <div className="header">

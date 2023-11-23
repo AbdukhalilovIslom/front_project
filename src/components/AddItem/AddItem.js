@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
-import { TextField, ThemeProvider, createTheme } from "@mui/material";
+import { TextField } from "@mui/material";
 import { base_url } from "../../data";
 import { toast } from "react-toastify";
 import "./addItem.scss";
