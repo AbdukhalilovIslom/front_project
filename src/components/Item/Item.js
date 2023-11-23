@@ -180,6 +180,10 @@ export default function Item({ item, setRender, usersNames }) {
             usersNames.find(
               (user) =>
                 user._id === item.comments[item.comments.length - 1].postedBy
+            ) &&
+            usersNames.find(
+              (user) =>
+                user._id === item.comments[item.comments.length - 1].postedBy
             ).name}
           <br />
           {item.comments[item.comments.length - 1].text}
