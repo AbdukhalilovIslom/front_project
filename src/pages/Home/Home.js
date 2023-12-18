@@ -147,7 +147,11 @@ export default function Home() {
                 ))}
               </Swiper>
             ) : (
-              <div className="home__item__not__found">Item not found</div>
+              <h2 className="home__item__not__found">
+                Server is running ...
+                <br />
+                Render.com free tarif "sila 🔥"
+              </h2>
             )}
           </div>
         </div>
